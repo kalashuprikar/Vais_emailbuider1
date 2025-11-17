@@ -580,23 +580,24 @@ export default function Settings() {
                       </div>
                     </div>
 
-                    {/* Upgrade Button */}
-                    <Button
-                      onClick={() => navigate("/subscription")}
-                      className="w-full mt-4 bg-gradient-to-r from-valasys-orange to-valasys-orange-light text-white shadow-md hover:shadow-lg hover:from-valasys-orange/90 hover:to-valasys-orange-light/90 transition-all"
-                    >
-                      <ArrowRight className="w-4 h-4 mr-2" />
-                      Upgrade Subscription
-                    </Button>
+                    {/* Upgrade and Cancel Buttons */}
+                    <div className="flex items-center gap-3 mt-4">
+                      <Button
+                        onClick={() => navigate("/subscription")}
+                        className="flex-1 bg-gradient-to-r from-valasys-orange to-valasys-orange-light text-white shadow-md hover:shadow-lg hover:from-valasys-orange/90 hover:to-valasys-orange-light/90 transition-all"
+                      >
+                        <ArrowRight className="w-4 h-4 mr-2" />
+                        Upgrade Subscription
+                      </Button>
 
-                    {/* Cancel Subscription Button */}
-                    <Button
-                      onClick={() => setCancelSubscriptionOpen(true)}
-                      variant="outline"
-                      className="w-full mt-2 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
-                    >
-                      Cancel Subscription
-                    </Button>
+                      <Button
+                        onClick={() => setCancelSubscriptionOpen(true)}
+                        variant="outline"
+                        className="flex-1 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
+                      >
+                        Cancel Subscription
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
