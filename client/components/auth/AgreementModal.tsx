@@ -278,9 +278,9 @@ export default function AgreementModal({
             <Button
               type="button"
               onClick={handleConfirm}
-              disabled={!agreementConfirmed}
+              disabled={!agreementConfirmed || isAlreadyConfirmed}
               className={`font-medium transition-all duration-200 flex items-center gap-2 ${
-                agreementConfirmed
+                agreementConfirmed && !isAlreadyConfirmed
                   ? "bg-valasys-orange hover:bg-valasys-orange-light text-white"
                   : "bg-valasys-gray-200 text-valasys-gray-500 cursor-not-allowed"
               }`}
