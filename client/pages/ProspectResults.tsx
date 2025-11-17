@@ -1214,6 +1214,7 @@ export default function ProspectResults() {
                       variant="outline"
                       size="icon"
                       aria-label="Reset filters"
+                      className="cursor-pointer"
                     >
                       <RefreshCw className="w-4 h-4" />
                     </Button>
