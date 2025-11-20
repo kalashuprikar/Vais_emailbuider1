@@ -411,7 +411,7 @@ export function AddPaymentMethodDialog({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Cardholder Name</label>
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">Cardholder Name</label>
                   <Input
                     placeholder="Full name on card"
                     value={formData.cardholderName}
@@ -421,29 +421,29 @@ export function AddPaymentMethodDialog({
                         cardholderName: e.target.value,
                       })
                     }
-                    className={`h-12 transition-all border-2 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-30 ${
+                    className={`h-10 md:h-12 text-sm md:text-base transition-all border-2 focus:ring-2 focus:ring-valasys-orange/30 ${
                       getErrorMessage("cardholderName")
                         ? "border-red-500 focus:border-red-500"
-                        : "border-gray-200 focus:border-blue-500"
+                        : "border-gray-200 focus:border-valasys-orange"
                     }`}
                   />
                   {getErrorMessage("cardholderName") && (
-                    <div className="flex items-center gap-2 mt-2 text-sm text-red-600 animate-in fade-in">
-                      <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <div className="flex items-center gap-2 mt-1.5 md:mt-2 text-xs md:text-sm text-red-600 animate-in fade-in">
+                      <AlertCircle className="w-3 md:w-4 h-3 md:h-4 flex-shrink-0" />
                       <span>{getErrorMessage("cardholderName")}</span>
                     </div>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Country or Region</label>
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">Country or Region</label>
                   <Select
                     value={formData.country}
                     onValueChange={(value) =>
                       setFormData({ ...formData, country: value })
                     }
                   >
-                    <SelectTrigger className="h-12 border-2 border-gray-200 focus:border-blue-500">
+                    <SelectTrigger className="h-10 md:h-12 text-sm md:text-base border-2 border-gray-200 focus:border-valasys-orange">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
