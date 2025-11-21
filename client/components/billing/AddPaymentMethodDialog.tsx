@@ -562,23 +562,6 @@ export function AddPaymentMethodDialog({
 
           {paymentType === "paypal" && (
             <div className="space-y-6 animate-in fade-in slide-in-from-top-2 duration-300">
-              <div className="bg-gradient-to-br from-orange-50 via-orange-100 to-orange-50 rounded-2xl p-4 md:p-6 border-2 border-valasys-orange/30 shadow-lg">
-                <div className="flex items-start gap-3 md:gap-4">
-                  <div className="p-2 md:p-3 bg-gradient-to-r from-valasys-orange to-valasys-orange-light rounded-xl shadow-lg flex-shrink-0">
-                    <Zap className="w-5 md:w-6 h-5 md:h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-gray-900 text-base md:text-lg">
-                      Secure & Fast Payment
-                    </p>
-                    <p className="text-xs md:text-sm text-gray-700 mt-1">
-                      PayPal securely handles your payment without sharing card
-                      details
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               <div>
                 <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                   PayPal Email Address
