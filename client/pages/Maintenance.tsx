@@ -202,10 +202,10 @@ export default function Maintenance() {
             opacity: 0;
           }
           10% {
-            opacity: 0.3;
+            opacity: 0.4;
           }
           90% {
-            opacity: 0.3;
+            opacity: 0.4;
           }
           100% {
             transform: translateY(-100vh) translateX(100px);
