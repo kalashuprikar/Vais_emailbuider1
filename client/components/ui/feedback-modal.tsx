@@ -109,7 +109,7 @@ export function FeedbackModal({ open, onOpenChange }: FeedbackModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg bg-white">
+      <DialogContent className="max-w-sm bg-white">
         <div className="flex items-center justify-between pb-4 border-b border-gray-200 -mx-6 px-6">
           <h2 className="text-xl font-semibold text-gray-900">Feedback</h2>
         </div>
