@@ -760,19 +760,21 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   };
 
   return (
-    <div className="bg-white border-l border-gray-200 p-4 h-full overflow-y-auto max-w-xs">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-900">Block Settings</h3>
+    <div className="bg-white border-l border-gray-200 p-5 h-full overflow-y-auto">
+      <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+        <h3 className="font-semibold text-gray-900 text-base">Style</h3>
         <Button
           variant="outline"
           size="sm"
           onClick={onBlockDelete}
-          className="text-red-600 hover:text-red-700"
+          className="text-red-600 hover:text-red-700 hover:bg-red-50"
         >
           <Trash2 className="w-4 h-4" />
         </Button>
       </div>
-      {renderSettings()}
+      <div className="space-y-5">
+        {renderSettings()}
+      </div>
     </div>
   );
 };
