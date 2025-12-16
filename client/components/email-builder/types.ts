@@ -131,6 +131,12 @@ export interface SocialBlock {
   }[];
   alignment: "left" | "center" | "right";
   size: "small" | "medium" | "large";
+  padding: number;
+  margin: number;
+  borderWidth: number;
+  borderColor: string;
+  borderRadius: number;
+  visibility: "all" | "desktop" | "mobile";
 }
 
 export interface HtmlBlock {
