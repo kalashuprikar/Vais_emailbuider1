@@ -2398,86 +2398,91 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     Icon Design
                   </h4>
                   <div className="space-y-3">
-                  <div>
-                    <Label htmlFor="socialSize" className="text-xs text-gray-700 mb-1 block">
-                      Size
-                    </Label>
-                    <select
-                      id="socialSize"
-                      value={block.social.size}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          social: {
-                            ...block.social,
-                            size: e.target.value as any,
-                          },
-                        })
-                      }
-                      className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
-                    >
-                      <option value="small">Small</option>
-                      <option value="medium">Medium</option>
-                      <option value="large">Large</option>
-                    </select>
+                    <div>
+                      <Label
+                        htmlFor="socialSize"
+                        className="text-xs text-gray-700 mb-1 block"
+                      >
+                        Size
+                      </Label>
+                      <select
+                        id="socialSize"
+                        value={block.social.size}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            social: {
+                              ...block.social,
+                              size: e.target.value as any,
+                            },
+                          })
+                        }
+                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
+                      >
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                      </select>
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="socialShape"
+                        className="text-xs text-gray-700 mb-1 block"
+                      >
+                        Shape
+                      </Label>
+                      <select
+                        id="socialShape"
+                        value={block.social.shape}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            social: {
+                              ...block.social,
+                              shape: e.target.value as any,
+                            },
+                          })
+                        }
+                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
+                      >
+                        <option value="rounded">Rounded</option>
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                      </select>
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="socialTheme"
+                        className="text-xs text-gray-700 mb-1 block"
+                      >
+                        Theme
+                      </Label>
+                      <select
+                        id="socialTheme"
+                        value={block.social.theme}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            social: {
+                              ...block.social,
+                              theme: e.target.value as any,
+                            },
+                          })
+                        }
+                        className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
+                      >
+                        <option value="colored">Colored</option>
+                        <option value="outlined">Outlined</option>
+                        <option value="solid">Solid</option>
+                      </select>
+                    </div>
                   </div>
-                  <div>
-                    <Label
-                      htmlFor="socialShape"
-                      className="text-xs text-gray-700 mb-1 block"
-                    >
-                      Shape
-                    </Label>
-                    <select
-                      id="socialShape"
-                      value={block.social.shape}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          social: {
-                            ...block.social,
-                            shape: e.target.value as any,
-                          },
-                        })
-                      }
-                      className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
-                    >
-                      <option value="rounded">Rounded</option>
-                      <option value="circle">Circle</option>
-                      <option value="square">Square</option>
-                    </select>
-                  </div>
-                  <div>
-                    <Label
-                      htmlFor="socialTheme"
-                      className="text-xs text-gray-700 mb-1 block"
-                    >
-                      Theme
-                    </Label>
-                    <select
-                      id="socialTheme"
-                      value={block.social.theme}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          social: {
-                            ...block.social,
-                            theme: e.target.value as any,
-                          },
-                        })
-                      }
-                      className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange"
-                    >
-                      <option value="colored">Colored</option>
-                      <option value="outlined">Outlined</option>
-                      <option value="solid">Solid</option>
-                    </select>
-                  </div>
-                </div>
                 </div>
 
                 <div className="border-t border-gray-200 pt-4">
-                  <h4 className="text-xs font-bold text-gray-900 mb-3">Layout</h4>
+                  <h4 className="text-xs font-bold text-gray-900 mb-3">
+                    Layout
+                  </h4>
                   <div className="space-y-3">
                     <div>
                       <Label
@@ -2544,23 +2549,25 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Label className="text-xs text-gray-700 mb-1 block">
                         Font Size (px)
                       </Label>
-                    <Input
-                      type="number"
-                      value={block.enterpriseName.fontSize}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          enterpriseName: {
-                            ...block.enterpriseName,
-                            fontSize: parseInt(e.target.value),
-                          },
-                        })
-                      }
-                      className="focus:ring-valasys-orange focus:ring-2"
-                    />
-                  </div>
+                      <Input
+                        type="number"
+                        value={block.enterpriseName.fontSize}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            enterpriseName: {
+                              ...block.enterpriseName,
+                              fontSize: parseInt(e.target.value),
+                            },
+                          })
+                        }
+                        className="focus:ring-valasys-orange focus:ring-2"
+                      />
+                    </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Weight</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Weight
+                      </Label>
                       <select
                         value={block.enterpriseName.fontWeight}
                         onChange={(e) =>
@@ -2579,7 +2586,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Style</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Style
+                      </Label>
                       <select
                         value={block.enterpriseName.fontStyle}
                         onChange={(e) =>
@@ -2598,7 +2607,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Family</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Family
+                      </Label>
                       <Input
                         type="text"
                         value={block.enterpriseName.fontFamily}
@@ -2616,7 +2627,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Color</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Color
+                      </Label>
                       <Input
                         type="color"
                         value={block.enterpriseName.fontColor}
@@ -2664,23 +2677,25 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Label className="text-xs text-gray-700 mb-1 block">
                         Font Size (px)
                       </Label>
-                    <Input
-                      type="number"
-                      value={block.address.fontSize}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          address: {
-                            ...block.address,
-                            fontSize: parseInt(e.target.value),
-                          },
-                        })
-                      }
-                      className="focus:ring-valasys-orange focus:ring-2"
-                    />
-                  </div>
+                      <Input
+                        type="number"
+                        value={block.address.fontSize}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            address: {
+                              ...block.address,
+                              fontSize: parseInt(e.target.value),
+                            },
+                          })
+                        }
+                        className="focus:ring-valasys-orange focus:ring-2"
+                      />
+                    </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Weight</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Weight
+                      </Label>
                       <select
                         value={block.address.fontWeight}
                         onChange={(e) =>
@@ -2699,7 +2714,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Style</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Style
+                      </Label>
                       <select
                         value={block.address.fontStyle}
                         onChange={(e) =>
@@ -2718,7 +2735,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Family</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Family
+                      </Label>
                       <Input
                         type="text"
                         value={block.address.fontFamily}
@@ -2736,7 +2755,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Color</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Color
+                      </Label>
                       <Input
                         type="color"
                         value={block.address.fontColor}
@@ -2787,23 +2808,25 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Label className="text-xs text-gray-700 mb-1 block">
                         Font Size (px)
                       </Label>
-                    <Input
-                      type="number"
-                      value={block.subscriptionText.fontSize}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          subscriptionText: {
-                            ...block.subscriptionText,
-                            fontSize: parseInt(e.target.value),
-                          },
-                        })
-                      }
-                      className="focus:ring-valasys-orange focus:ring-2"
-                    />
-                  </div>
+                      <Input
+                        type="number"
+                        value={block.subscriptionText.fontSize}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            subscriptionText: {
+                              ...block.subscriptionText,
+                              fontSize: parseInt(e.target.value),
+                            },
+                          })
+                        }
+                        className="focus:ring-valasys-orange focus:ring-2"
+                      />
+                    </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Weight</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Weight
+                      </Label>
                       <select
                         value={block.subscriptionText.fontWeight}
                         onChange={(e) =>
@@ -2822,7 +2845,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Style</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Style
+                      </Label>
                       <select
                         value={block.subscriptionText.fontStyle}
                         onChange={(e) =>
@@ -2841,7 +2866,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Family</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Family
+                      </Label>
                       <Input
                         type="text"
                         value={block.subscriptionText.fontFamily}
@@ -2859,7 +2886,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Color</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Color
+                      </Label>
                       <Input
                         type="color"
                         value={block.subscriptionText.fontColor}
@@ -2885,7 +2914,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <h4 className="text-xs font-bold text-gray-900 mb-3">Link</h4>
                   <div className="space-y-3">
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Link Text</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Link Text
+                      </Label>
                       <Input
                         type="text"
                         value={block.unsubscribeLink.text}
@@ -2902,7 +2933,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Link URL</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Link URL
+                      </Label>
                       <Input
                         type="url"
                         value={block.unsubscribeLink.url}
@@ -2946,23 +2979,25 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <Label className="text-xs text-gray-700 mb-1 block">
                         Font Size (px)
                       </Label>
-                    <Input
-                      type="number"
-                      value={block.unsubscribeLink.fontSize}
-                      onChange={(e) =>
-                        onBlockUpdate({
-                          ...block,
-                          unsubscribeLink: {
-                            ...block.unsubscribeLink,
-                            fontSize: parseInt(e.target.value),
-                          },
-                        })
-                      }
-                      className="focus:ring-valasys-orange focus:ring-2"
-                    />
-                  </div>
+                      <Input
+                        type="number"
+                        value={block.unsubscribeLink.fontSize}
+                        onChange={(e) =>
+                          onBlockUpdate({
+                            ...block,
+                            unsubscribeLink: {
+                              ...block.unsubscribeLink,
+                              fontSize: parseInt(e.target.value),
+                            },
+                          })
+                        }
+                        className="focus:ring-valasys-orange focus:ring-2"
+                      />
+                    </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Weight</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Weight
+                      </Label>
                       <select
                         value={block.unsubscribeLink.fontWeight}
                         onChange={(e) =>
@@ -2981,7 +3016,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Style</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Style
+                      </Label>
                       <select
                         value={block.unsubscribeLink.fontStyle}
                         onChange={(e) =>
@@ -3000,7 +3037,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </select>
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Family</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Family
+                      </Label>
                       <Input
                         type="text"
                         value={block.unsubscribeLink.fontFamily}
@@ -3018,7 +3057,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       />
                     </div>
                     <div>
-                      <Label className="text-xs text-gray-700 mb-1 block">Font Color</Label>
+                      <Label className="text-xs text-gray-700 mb-1 block">
+                        Font Color
+                      </Label>
                       <Input
                         type="color"
                         value={block.unsubscribeLink.fontColor}
