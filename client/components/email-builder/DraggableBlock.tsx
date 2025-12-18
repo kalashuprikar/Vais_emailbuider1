@@ -66,7 +66,7 @@ export const DraggableBlock: React.FC<DraggableBlockProps> = ({
 
   return (
     <div
-      ref={dragDropRef}
+      ref={ref}
       className={cn(
         "group relative transition-all cursor-move",
         isDragging && "opacity-50 scale-95",
