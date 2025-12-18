@@ -311,6 +311,10 @@ export const EmailBuilder: React.FC<EmailBuilderProps> = ({
                       backgroundColor: color,
                     })
                   }
+                  onMoveBlockUp={handleMoveBlockUp}
+                  onMoveBlockDown={handleMoveBlockDown}
+                  onDuplicateBlock={handleDuplicateBlock}
+                  onDeleteBlock={handleDeleteBlockById}
                 />
 
                 {/* Right Sidebar - Settings Panel */}
