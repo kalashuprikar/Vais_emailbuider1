@@ -24,10 +24,10 @@ export const LogoBlockComponent: React.FC<LogoBlockComponentProps> = ({
             src={block.src}
             alt={block.alt}
             style={{
-              width: block.width,
-              height: block.height,
-              maxWidth: "100%",
-              height: "auto",
+              width: `${block.width}px`,
+              height: `${block.height}px`,
+              display: block.alignment === "center" ? "block" : "inline",
+              margin: block.alignment === "center" ? "0 auto" : "0",
             }}
           />
         ) : (
