@@ -1581,9 +1581,7 @@ export default function MyDownloadedList() {
               >
                 {selectedCrm === "hubspot"
                   ? "📊 HubSpot Import"
-                  : selectedCrm === "salesforce"
-                    ? "☁️ Salesforce Import"
-                    : "📈 Marketo Import"}
+                  : "☁️ Salesforce Import"}
               </Badge>
             </div>
 
@@ -1597,7 +1595,7 @@ export default function MyDownloadedList() {
               value={selectedCrm}
               onValueChange={(v) => setSelectedCrm(v as any)}
             >
-              <TabsList className="grid w-full grid-cols-3 bg-gray-100 p-1 rounded-lg mb-6">
+              <TabsList className="grid w-full grid-cols-2 bg-gray-100 p-1 rounded-lg mb-6">
                 <TabsTrigger
                   value="hubspot"
                   className="data-[state=active]:bg-white data-[state=active]:text-orange-700 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-orange-500 rounded-md transition-all"
@@ -1615,15 +1613,6 @@ export default function MyDownloadedList() {
                     SF
                   </span>
                   Salesforce
-                </TabsTrigger>
-                <TabsTrigger
-                  value="marketo"
-                  className="data-[state=active]:bg-white data-[state=active]:text-purple-700 data-[state=active]:shadow-sm data-[state=active]:border-b-2 data-[state=active]:border-purple-500 rounded-md transition-all"
-                >
-                  <span className="inline-flex items-center justify-center w-5 h-5 rounded bg-[#5C4BAF] text-white text-[10px] font-bold mr-2">
-                    MK
-                  </span>
-                  Marketo
                 </TabsTrigger>
               </TabsList>
 
