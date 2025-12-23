@@ -1602,15 +1602,13 @@ export default function MyDownloadedList() {
                 De-duplication by Email
               </Badge>
               <Badge
-                className="bg-purple-100 text-purple-800 border border-purple-300 rounded-full px-3 py-1"
-                className="bg-valasys-orange/10 text-valasys-orange"
+                className="bg-valasys-orange/10 text-valasys-orange border border-valasys-orange/30 rounded-full px-3 py-1"
               >
-                Selected CRM:{" "}
                 {selectedCrm === "hubspot"
-                  ? "HubSpot"
+                  ? "📊 HubSpot Import"
                   : selectedCrm === "salesforce"
-                    ? "Salesforce"
-                    : "Marketo"}
+                    ? "☁️ Salesforce Import"
+                    : "📈 Marketo Import"}
               </Badge>
             </div>
 
