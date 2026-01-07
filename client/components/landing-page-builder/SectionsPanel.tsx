@@ -18,113 +18,76 @@ const sectionTemplates: SectionTemplate[] = [
   {
     id: "template-1",
     name: "Meet Framer",
-    description: "Internet controls",
+    description: "Internet canvas.",
     preview: (
-      <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-6 h-40 flex items-center justify-center">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 h-40 flex flex-col items-center justify-between">
         <div className="text-center">
-          <div className="text-sm font-semibold text-gray-700">Meet Framer</div>
-          <div className="text-xs text-gray-500 mt-1">Internet controls</div>
+          <div className="text-sm font-semibold text-gray-900">Meet Framer</div>
+          <div className="text-xs text-gray-600 mt-1">Internet canvas.</div>
         </div>
+        <div className="w-full h-16 bg-gray-100 rounded-lg"></div>
       </div>
     ),
   },
   {
     id: "template-2",
-    name: "Canvas",
-    description: "Design playground",
+    name: "Meet Framer",
+    description: "With buttons",
     preview: (
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 h-40 flex items-center justify-center">
+      <div className="bg-white border border-gray-200 rounded-xl p-6 h-40 flex flex-col items-center justify-center gap-4">
         <div className="text-center">
-          <div className="text-sm font-semibold text-blue-700">Canvas</div>
-          <div className="text-xs text-blue-500 mt-1">Design playground</div>
+          <div className="text-sm font-semibold text-gray-900">Meet Framer</div>
+          <div className="text-xs text-gray-600 mt-1">Internet canvas.</div>
+        </div>
+        <div className="flex gap-3">
+          <button className="px-4 py-2 bg-gray-900 text-white text-xs font-medium rounded">
+            Sign Up
+          </button>
+          <button className="px-4 py-2 bg-gray-100 text-gray-900 text-xs font-medium rounded">
+            Download
+          </button>
         </div>
       </div>
     ),
   },
   {
     id: "template-3",
-    name: "Publish",
-    description: "Share your work",
+    name: "Logo",
+    description: "Three logos",
     preview: (
-      <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-purple-700">Publish</div>
-          <div className="text-xs text-purple-500 mt-1">Share your work</div>
+      <div className="bg-white border border-gray-200 rounded-xl p-6 h-40 flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 w-full">
+          <div className="flex items-center gap-1 text-gray-400">
+            <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+            <span className="text-xs text-gray-500">Logo</span>
+          </div>
+          <div className="flex items-center gap-1 text-gray-400">
+            <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+            <span className="text-xs text-gray-500">Logo</span>
+          </div>
+          <div className="flex items-center gap-1 text-gray-400">
+            <div className="w-2 h-2 bg-gray-400"></div>
+            <span className="text-xs text-gray-500">Logo</span>
+          </div>
         </div>
       </div>
     ),
   },
   {
     id: "template-4",
-    name: "Design",
-    description: "Create layouts",
+    name: "Infinite canvas",
+    description: "Content layout",
     preview: (
-      <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-green-700">Design</div>
-          <div className="text-xs text-green-500 mt-1">Create layouts</div>
+      <div className="bg-white border border-gray-200 rounded-xl p-6 h-40 flex">
+        <div className="flex-1 flex flex-col justify-center gap-2">
+          <div className="text-xs font-semibold text-gray-900">Infinite canvas.</div>
+          <div className="text-xs text-gray-500 line-clamp-2">
+            Create layouts with your canvas
+          </div>
+          <div className="h-8 bg-gray-100 rounded-lg mt-2"></div>
         </div>
-      </div>
-    ),
-  },
-  {
-    id: "template-5",
-    name: "Write",
-    description: "Content editor",
-    preview: (
-      <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-amber-700">Write</div>
-          <div className="text-xs text-amber-500 mt-1">Content editor</div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "template-6",
-    name: "Infinite carousel",
-    description: "Scrolling content",
-    preview: (
-      <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-pink-700">Infinite carousel</div>
-          <div className="text-xs text-pink-500 mt-1">Scrolling content</div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "template-7",
-    name: "Become fast",
-    description: "Performance boost",
-    preview: (
-      <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-cyan-700">Become fast</div>
-          <div className="text-xs text-cyan-500 mt-1">Performance boost</div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "template-8",
-    name: "Logo",
-    description: "Brand identity",
-    preview: (
-      <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-4xl font-bold text-gray-400">L</div>
-      </div>
-    ),
-  },
-  {
-    id: "template-9",
-    name: "Publish",
-    description: "Deploy solutions",
-    preview: (
-      <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg p-6 h-40 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-sm font-semibold text-indigo-700">Publish</div>
-          <div className="text-xs text-indigo-500 mt-1">Deploy solutions</div>
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-12 h-12 bg-gray-100 rounded-lg"></div>
         </div>
       </div>
     ),
