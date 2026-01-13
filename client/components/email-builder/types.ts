@@ -171,6 +171,7 @@ export interface ProductBlock {
   buttonText: string;
   buttonLink: string;
   alignment: "left" | "center" | "right";
+  imagePosition: "left" | "right" | "center";
   padding: number;
   margin: number;
   borderWidth: number;
