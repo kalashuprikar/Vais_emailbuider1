@@ -398,6 +398,8 @@ export default function BuildVAISForm() {
           setTimeout(() => element.classList.remove("animate-pulse"), 500);
         }
       }, 100);
+      // Trigger blink on the file upload field
+      triggerFieldBlink("uploadFile");
     }
     setSearchTerm("");
   };
