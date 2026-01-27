@@ -108,16 +108,21 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
   return (
     <div className="flex flex-col h-full bg-gray-50 overflow-hidden">
       {/* Header with Actions - Fixed at top */}
-      <div className="bg-white border-b border-gray-200 p-4 shadow-sm flex-shrink-0">
+      <div className="bg-white border-b border-gray-200 p-4 shadow-sm flex-shrink-0 relative z-20">
         <div className="flex items-center justify-between gap-4 mb-2">
-          <h2 className="text-lg font-semibold text-gray-800">
+          <h2 className="text-lg font-semibold text-gray-800 whitespace-nowrap">
             HTML Source Code
           </h2>
           <TooltipProvider delayDuration={200}>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Tooltip open={openTooltip} onOpenChange={setOpenTooltip}>
                 <TooltipTrigger asChild>
-                  <Button variant="outline" size="sm" onClick={handleCopy}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCopy}
+                    className="flex-shrink-0"
+                  >
                     <Copy className="w-4 h-4" />
                   </Button>
                 </TooltipTrigger>
@@ -127,7 +132,11 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
               </Tooltip>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-shrink-0"
+                  >
                     <Download className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
