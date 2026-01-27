@@ -72,7 +72,7 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
     element.click();
     document.body.removeChild(element);
 
-    showDownloadedMessage();
+    toast.success("HTML downloaded successfully");
   };
 
   const handleDownloadJSON = () => {
@@ -85,7 +85,7 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
     element.click();
     document.body.removeChild(element);
 
-    showDownloadedMessage();
+    toast.success("Template JSON downloaded successfully");
   };
 
   const handleDownloadPDF = () => {
@@ -120,16 +120,7 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
       }, 250);
     }
 
-    showDownloadedMessage();
-  };
-
-  const showDownloadedMessage = () => {
-    setDownloaded(true);
-    setOpenDownloadTooltip(true);
-    setTimeout(() => {
-      setDownloaded(false);
-      setOpenDownloadTooltip(false);
-    }, 2000);
+    toast.success("PDF preview opened. Use your browser's print dialog to save as PDF");
   };
 
   return (
