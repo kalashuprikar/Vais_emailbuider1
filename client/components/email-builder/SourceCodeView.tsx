@@ -29,41 +29,55 @@ export const SourceCodeView: React.FC<SourceCodeViewProps> = ({ template }) => {
 
   const handleCopy = useCallback(() => {
     if (!htmlContent) {
-      console.error("No content to copy");
+      toast.error("No content to copy");
       return;
     }
 
-    navigator.clipboard
-      .writeText(htmlContent)
-      .then(() => {
-        console.log("Content copied to clipboard");
-        setCopied(true);
-        setOpenTooltip(true);
-        setTimeout(() => {
-          setCopied(false);
-          setOpenTooltip(false);
-        }, 2000);
-      })
-      .catch((err) => {
-        console.error("Failed to copy:", err);
-        // Fallback: use old method
-        const textArea = document.createElement("textarea");
-        textArea.value = htmlContent;
-        document.body.appendChild(textArea);
-        textArea.select();
+    const copyToClipboard = async () => {
+      // Try modern Clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
         try {
-          document.execCommand("copy");
+          await navigator.clipboard.writeText(htmlContent);
           setCopied(true);
           setOpenTooltip(true);
+          toast.success("Copied to clipboard");
           setTimeout(() => {
             setCopied(false);
             setOpenTooltip(false);
           }, 2000);
+          return;
         } catch (err) {
-          console.error("Fallback copy failed:", err);
+          // Clipboard API failed, fall through to fallback
+          console.debug("Clipboard API unavailable, using fallback");
         }
+      }
+
+      // Fallback: use execCommand method
+      const textArea = document.createElement("textarea");
+      textArea.value = htmlContent;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+
+      try {
+        document.execCommand("copy");
+        setCopied(true);
+        setOpenTooltip(true);
+        toast.success("Copied to clipboard");
+        setTimeout(() => {
+          setCopied(false);
+          setOpenTooltip(false);
+        }, 2000);
+      } catch (err) {
+        console.error("Copy failed:", err);
+        toast.error("Failed to copy to clipboard");
+      } finally {
         document.body.removeChild(textArea);
-      });
+      }
+    };
+
+    copyToClipboard();
   }, [htmlContent]);
 
   const handleDownloadHTML = () => {
