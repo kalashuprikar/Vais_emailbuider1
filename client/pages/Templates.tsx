@@ -20,7 +20,7 @@ import {
   deleteTemplateFromLocalStorage,
   renderTemplateToHTML,
 } from "@/components/email-builder/utils";
-import { Mail, Plus, Trash2, Edit2, Download } from "lucide-react";
+import { Mail, Plus, Trash2, Edit2, Download, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type View = "list" | "editor";
@@ -34,6 +34,7 @@ export default function Templates() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
+  const [redirectUrl, setRedirectUrl] = useState("");
 
   // Load templates from localStorage
   useEffect(() => {
