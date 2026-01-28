@@ -444,10 +444,30 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Label className="text-xs text-gray-700 mb-2 block">
                     Image
                   </Label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="bgImageUpload"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                          onBlockUpdate({
+                            ...block,
+                            backgroundImage: event.target?.result as string,
+                          });
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                  />
                   <Button
                     variant="outline"
                     size="sm"
                     className="w-full text-xs"
+                    onClick={() => document.getElementById("bgImageUpload")?.click()}
                   >
                     Add image
                   </Button>
@@ -459,6 +479,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Input
                     type="text"
                     placeholder="https://example.com/image.jpg"
+                    value={(block as any).backgroundImage || ""}
+                    onChange={(e) =>
+                      onBlockUpdate({
+                        ...block,
+                        backgroundImage: e.target.value,
+                      })
+                    }
                     className="focus:ring-valasys-orange focus:ring-2"
                   />
                 </div>
@@ -991,10 +1018,30 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Label className="text-xs text-gray-700 mb-2 block">
                     Image
                   </Label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="bgImageUpload"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                          onBlockUpdate({
+                            ...block,
+                            backgroundImage: event.target?.result as string,
+                          });
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                  />
                   <Button
                     variant="outline"
                     size="sm"
                     className="w-full text-xs"
+                    onClick={() => document.getElementById("bgImageUpload")?.click()}
                   >
                     Add image
                   </Button>
@@ -1006,6 +1053,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <Input
                     type="text"
                     placeholder="https://example.com/image.jpg"
+                    value={(block as any).backgroundImage || ""}
+                    onChange={(e) =>
+                      onBlockUpdate({
+                        ...block,
+                        backgroundImage: e.target.value,
+                      })
+                    }
                     className="focus:ring-valasys-orange focus:ring-2"
                   />
                 </div>
