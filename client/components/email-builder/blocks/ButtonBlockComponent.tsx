@@ -71,52 +71,40 @@ export const ButtonBlockComponent: React.FC<ButtonBlockComponentProps> = ({
         >
           {block.text}
         </button>
-        {showTooltip && block.linkTooltip && (
+        {showTooltip && block.link && block.link !== "#" && (
           <div
             style={
               {
-                position: "absolute",
-                bottom: "calc(100% + 18px)",
-                left: "50%",
-                transform: "translateX(-50%) scale(1)",
+                position: "fixed",
+                bottom: "20px",
+                left: "20px",
                 backgroundColor: "#1F2937",
                 color: "#FFFFFF",
-                padding: "5px 10px",
+                padding: "8px 12px",
                 borderRadius: "4px",
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: "500",
-                whiteSpace: "nowrap",
+                maxWidth: "300px",
+                wordBreak: "break-all",
                 zIndex: 10000,
                 boxShadow: "0 6px 12px rgba(0, 0, 0, 0.25)",
                 pointerEvents: "none",
-                animation: "tooltipFade 0.2s ease-in-out",
+                animation: "urlDisplay 0.2s ease-in-out",
                 letterSpacing: "0.2px",
                 border: "1px solid rgba(255, 255, 255, 0.08)",
               } as React.CSSProperties
             }
           >
-            {block.linkTooltip}
-            <div
-              style={{
-                position: "absolute",
-                top: "100%",
-                left: "50%",
-                marginLeft: "-5px",
-                borderLeft: "5px solid transparent",
-                borderRight: "5px solid transparent",
-                borderTop: "5px solid #1F2937",
-                filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))",
-              }}
-            />
+            {block.link}
             <style>{`
-              @keyframes tooltipFade {
+              @keyframes urlDisplay {
                 from {
                   opacity: 0;
-                  transform: translateX(-50%) scale(0.95);
+                  transform: translateY(10px);
                 }
                 to {
                   opacity: 1;
-                  transform: translateX(-50%) scale(1);
+                  transform: translateY(0);
                 }
               }
             `}</style>
