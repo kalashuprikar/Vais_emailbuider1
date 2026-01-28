@@ -95,7 +95,7 @@ export const EmailCanvas: React.FC<EmailCanvasProps> = ({
                   type="text"
                   value={template.backgroundColor}
                   onChange={(e) => onBackgroundColorChange(e.target.value)}
-                  className="text-sm border border-gray-300 rounded px-2 py-2 focus:outline-none focus:ring-2 focus:ring-valasys-orange focus:border-transparent flex-1"
+                  className="text-sm border border-gray-300 rounded px-2 py-2 focus:outline-none focus:ring-2 focus:ring-valasys-orange focus:border-transparent flex-1 mr-2"
                   placeholder="#ffffff"
                 />
               </div>
