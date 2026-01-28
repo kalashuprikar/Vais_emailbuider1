@@ -46,13 +46,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
     null,
   );
   const [titleWidthInput, setTitleWidthInput] = useState<string>(
-    String(block?.type === "title" ? (block.width ?? 100) : 100)
+    String(block?.type === "title" ? (block.width ?? 100) : 100),
   );
   const [videoWidthInput, setVideoWidthInput] = useState<string>(
-    String(block?.type === "video" ? (block.width ?? 300) : 300)
+    String(block?.type === "video" ? (block.width ?? 300) : 300),
   );
   const [videoHeightInput, setVideoHeightInput] = useState<string>(
-    String(block?.type === "video" ? (block.height ?? 200) : 200)
+    String(block?.type === "video" ? (block.height ?? 200) : 200),
   );
 
   // Update input states when block changes
@@ -3948,7 +3948,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       onKeyDown={(e) => {
                         if (e.key === "ArrowUp") {
                           e.preventDefault();
-                          const currentHeight = parseInt(videoHeightInput) || 200;
+                          const currentHeight =
+                            parseInt(videoHeightInput) || 200;
                           const newHeight = Math.min(currentHeight + 1, 1000);
                           onBlockUpdate({
                             ...block,
@@ -3957,7 +3958,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                           setVideoHeightInput(String(newHeight));
                         } else if (e.key === "ArrowDown") {
                           e.preventDefault();
-                          const currentHeight = parseInt(videoHeightInput) || 200;
+                          const currentHeight =
+                            parseInt(videoHeightInput) || 200;
                           const newHeight = Math.max(1, currentHeight - 1);
                           onBlockUpdate({
                             ...block,
