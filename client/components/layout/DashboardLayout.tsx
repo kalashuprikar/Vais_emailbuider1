@@ -1210,7 +1210,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <main className="relative flex-1 p-6 overflow-auto">{children}</main>
       </div>
 
-      {/* Manage Users Tooltip Portal (renders outside sidebar) */}
+      {/* Manage Users Text Portal (renders outside sidebar) */}
       {manageUsersTooltipVisible &&
         createPortal(
           <div
@@ -1219,63 +1219,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               top: manageUsersTooltipPos.top,
               transform: "translateX(-50%)",
             }}
-            className="fixed z-50 tooltip-animate tooltip-with-arrow"
+            className="fixed z-50"
             role="tooltip"
             onMouseEnter={() => setManageUsersTooltipVisible(true)}
             onMouseLeave={() => setManageUsersTooltipVisible(false)}
           >
-            <div className="relative w-72">
-              <div className="bg-white border rounded-lg shadow-lg p-4">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-valasys-orange to-valasys-orange-light flex items-center justify-center text-white shadow">
-                      <Lock className="w-5 h-5" />
-                    </div>
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-semibold">Manage Users</h4>
-                      <span className="text-xs text-valasys-orange font-semibold">
-                        Premium
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-gray-600 mt-1">
-                      Invite members, assign roles, and manage team access.
-                    </p>
-
-                    <ul className="mt-2 text-xs text-gray-700 space-y-1">
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-valasys-orange" />{" "}
-                        Role-based access
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-valasys-orange" />{" "}
-                        Activity logs & insights
-                      </li>
-                    </ul>
-
-                    <div className="mt-3 flex items-center gap-3">
-                      <button
-                        onClick={() => {
-                          setShowContactSalesDialog(true);
-                          setManageUsersTooltipVisible(false);
-                        }}
-                        className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-valasys-orange to-valasys-orange-light text-white text-xs rounded-md shadow-sm"
-                      >
-                        Contact Sales
-                      </button>
-                      <button
-                        onClick={() => setManageUsersTooltipVisible(false)}
-                        className="text-xs text-gray-500 hover:underline"
-                      >
-                        Dismiss
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="bg-gray-800 text-white px-3 py-2 rounded-md text-xs whitespace-nowrap shadow-lg">
+              Manage Users (Premium Feature)
             </div>
           </div>,
           document.body,
