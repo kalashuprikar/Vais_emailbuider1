@@ -4717,20 +4717,19 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   >
                     Width
                   </Label>
-                  <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
+                  <div className="flex gap-2 items-center">
+                    <button
                       onClick={() =>
                         onBlockUpdate({
                           ...block,
-                          width: Math.max(10, (block.width ?? 100) - 10),
+                          width: Math.max(1, (block.width ?? 100) - 1),
                         })
                       }
-                      className="px-2"
+                      className="p-1 border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+                      title="Decrease width"
                     >
-                      −
-                    </Button>
+                      <ChevronDown size={16} />
+                    </button>
                     <Input
                       id="htmlWidth"
                       type="number"
@@ -4747,19 +4746,18 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       placeholder="Enter width"
                       className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-valasys-orange focus:border-transparent"
                     />
-                    <Button
-                      variant="outline"
-                      size="sm"
+                    <button
                       onClick={() =>
                         onBlockUpdate({
                           ...block,
-                          width: (block.width ?? 100) + 10,
+                          width: (block.width ?? 100) + 1,
                         })
                       }
-                      className="px-2"
+                      className="p-1 border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+                      title="Increase width"
                     >
-                      +
-                    </Button>
+                      <ChevronUp size={16} />
+                    </button>
                     <select
                       value={block.widthUnit ?? "%"}
                       onChange={(e) =>
