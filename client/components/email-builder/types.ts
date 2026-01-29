@@ -392,6 +392,8 @@ export interface SplitImageCardBlock {
   buttonText: string;
   buttonLink: string;
   buttonLinkType?: "url" | "page" | "email";
+  width?: number;
+  height?: number;
   imagePosition: "left" | "right";
   backgroundColor: string;
   borderColor: string;
