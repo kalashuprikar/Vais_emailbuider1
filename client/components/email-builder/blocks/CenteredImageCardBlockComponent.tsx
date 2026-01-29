@@ -82,10 +82,6 @@ export const CenteredImageCardBlockComponent: React.FC<
 
         <div className="space-y-4 text-center">
           <div>
-            <label className="text-xs font-semibold text-gray-600 flex items-center justify-center gap-2 mb-2">
-              <Edit2 className="w-3 h-3" />
-              Title
-            </label>
             {editMode === "title" ? (
               <Input
                 value={block.title}
@@ -105,10 +101,6 @@ export const CenteredImageCardBlockComponent: React.FC<
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-gray-600 flex items-center justify-center gap-2 mb-2">
-              <Edit2 className="w-3 h-3" />
-              Description
-            </label>
             {editMode === "description" ? (
               <textarea
                 value={block.description}
@@ -130,10 +122,6 @@ export const CenteredImageCardBlockComponent: React.FC<
           </div>
 
           <div className="pt-2">
-            <label className="text-xs font-semibold text-gray-600 flex items-center justify-center gap-2 mb-3">
-              <Edit2 className="w-3 h-3" />
-              Button
-            </label>
             {editMode === "buttonText" ? (
               <Input
                 value={block.buttonText}
@@ -156,12 +144,8 @@ export const CenteredImageCardBlockComponent: React.FC<
             )}
           </div>
 
-          <div>
-            <label className="text-xs font-semibold text-gray-600 flex items-center justify-center gap-2 mb-2">
-              <Edit2 className="w-3 h-3" />
-              Button Link
-            </label>
-            {editMode === "buttonLink" ? (
+          {editMode === "buttonLink" && (
+            <div>
               <Input
                 value={block.buttonLink}
                 onChange={(e) =>
@@ -172,15 +156,8 @@ export const CenteredImageCardBlockComponent: React.FC<
                 placeholder="https://example.com"
                 className="text-sm text-center"
               />
-            ) : (
-              <p
-                onClick={() => setEditMode("buttonLink")}
-                className="text-xs text-gray-500 cursor-pointer hover:text-valasys-orange p-2 rounded hover:bg-orange-50 break-all transition-colors"
-              >
-                {block.buttonLink || "No link set"}
-              </p>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
