@@ -103,7 +103,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     onChange={(e) => handleFieldChange("title", e.target.value)}
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="font-bold text-lg border border-solid border-valasys-orange focus:outline-none"
+                    className="font-bold text-lg border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <p
@@ -131,7 +131,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border border-solid border-valasys-orange focus:outline-none bg-white"
+                    className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border border-valasys-orange focus:outline-none bg-white"
                   />
                 ) : (
                   <p
@@ -159,7 +159,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="border border-solid border-valasys-orange focus:outline-none"
+                    className="border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <button
@@ -186,7 +186,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     onBlur={() => setEditMode(null)}
                     autoFocus
                     placeholder="https://example.com"
-                    className="text-sm border border-solid border-valasys-orange focus:outline-none"
+                    className="text-sm border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <p
