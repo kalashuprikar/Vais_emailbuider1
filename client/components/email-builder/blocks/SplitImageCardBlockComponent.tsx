@@ -46,6 +46,21 @@ export const SplitImageCardBlockComponent: React.FC<
     });
   };
 
+  const handleCopyBlock = () => {
+    try {
+      const blockJSON = JSON.stringify(block);
+      const textArea = document.createElement("textarea");
+      textArea.value = blockJSON;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      toast.success("Block copied to clipboard!");
+    } catch (err) {
+      toast.error("Failed to copy block");
+    }
+  };
+
   const isImageLeft = block.imagePosition === "left";
 
   return (
