@@ -22,7 +22,7 @@ interface SectionTemplate {
   id: string;
   name: string;
   description: string;
-  preview: React.ReactNode;
+  preview: (isSelected: boolean) => React.ReactNode;
   blocks: () => LandingPageBlock[];
 }
 
