@@ -175,7 +175,6 @@ export const BlockActions: React.FC<BlockActionsProps> = ({
         size="sm"
         className="h-8 w-8 p-0 hover:bg-gray-100"
         onClick={() => {
-          console.log("Copy button clicked! Block:", block.type, "Index:", blockIndex);
           onDuplicate(block, blockIndex + 1);
         }}
         title="Duplicate block"
