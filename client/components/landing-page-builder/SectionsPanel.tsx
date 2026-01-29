@@ -199,8 +199,8 @@ const sectionTemplates: SectionTemplate[] = [
     id: "template-8",
     name: "Statistics",
     description: "Stats showcase",
-    preview: (
-      <div className="bg-white border border-gray-200 rounded-xl p-6 h-40 flex gap-4 items-center justify-center">
+    preview: (isSelected) => (
+      <div className={`bg-white ${isSelected ? 'border border-gray-900' : 'border border-gray-200 hover:border-dashed hover:border-gray-400'} rounded-xl p-6 h-40 flex gap-4 items-center justify-center transition-all`}>
         <div className="flex-1 flex flex-col items-center justify-center gap-1">
           <div className="text-lg font-bold text-gray-900">30+</div>
           <div className="text-xs text-gray-500">Templates</div>
