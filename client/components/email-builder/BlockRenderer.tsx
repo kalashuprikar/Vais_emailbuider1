@@ -69,6 +69,7 @@ export const BlockRenderer: React.FC<BlockRendererProps> = ({
             isSelected={isSelected}
             isEditing={isEditing || false}
             onEdit={() => onBlockSelect?.(block.id)}
+            onEditingChange={onEditingBlockChange}
             onContentChange={(content) => onBlockUpdate({ ...block, content })}
           />
         </div>
