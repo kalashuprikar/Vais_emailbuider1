@@ -46,6 +46,13 @@ export const SplitImageCardBlockComponent: React.FC<
     });
   };
 
+  const handleImageUrlSubmit = () => {
+    if (imageUrlInput.trim()) {
+      onBlockUpdate({ ...block, image: imageUrlInput.trim() });
+      setImageUrlInput("");
+    }
+  };
+
   const SectionToolbar = ({
     sectionType,
   }: {
