@@ -152,6 +152,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                 {block.title}
               </h3>
             )}
+            {editMode === "title" && <SectionToolbar />}
           </div>
 
           <div>
@@ -174,6 +175,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                 {block.description}
               </p>
             )}
+            {editMode === "description" && <SectionToolbar />}
           </div>
 
           <div className="pt-2">
@@ -197,6 +199,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                 </button>
               </div>
             )}
+            {editMode === "buttonText" && <SectionToolbar />}
           </div>
 
           {editMode === "buttonLink" && (
