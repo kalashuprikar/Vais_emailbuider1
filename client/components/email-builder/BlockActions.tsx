@@ -36,7 +36,7 @@ interface BlockActionsProps {
 }
 
 export const BlockActions: React.FC<BlockActionsProps> = ({
-  blockId,
+  block,
   blockIndex,
   totalBlocks,
   onAddBlock,
