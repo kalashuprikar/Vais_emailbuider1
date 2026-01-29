@@ -261,19 +261,22 @@ export const SplitImageCardBlockComponent: React.FC<
                     className="font-bold text-lg border-2 border-solid border-valasys-orange focus:outline-none"
                   />
                 ) : (
-                  <p
-                    onClick={() => setEditMode("title")}
-                    onMouseEnter={() => setIsHoveringTitle(true)}
-                    onMouseLeave={() => setIsHoveringTitle(false)}
-                    className="font-bold text-lg text-gray-900 cursor-pointer p-3 rounded transition-all"
-                    style={{
-                      border: isHoveringTitle
-                        ? "2px dashed rgb(255, 106, 0)"
-                        : "none",
-                    }}
-                  >
-                    {block.title}
-                  </p>
+                  <>
+                    <p
+                      onClick={() => setEditMode("title")}
+                      onMouseEnter={() => setIsHoveringTitle(true)}
+                      onMouseLeave={() => setIsHoveringTitle(false)}
+                      className="font-bold text-lg text-gray-900 cursor-pointer p-3 rounded transition-all"
+                      style={{
+                        border: isHoveringTitle
+                          ? "2px dashed rgb(255, 106, 0)"
+                          : "none",
+                      }}
+                    >
+                      {block.title}
+                    </p>
+                    {isHoveringTitle && <SectionToolbar sectionType="title" />}
+                  </>
                 )}
               </div>
 
