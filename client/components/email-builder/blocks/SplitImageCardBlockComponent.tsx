@@ -158,10 +158,6 @@ export const SplitImageCardBlockComponent: React.FC<
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-gray-600 flex items-center gap-2">
-                  <Edit2 className="w-3 h-3" />
-                  Button Text
-                </label>
                 {editMode === "buttonText" ? (
                   <Input
                     value={block.buttonText}
