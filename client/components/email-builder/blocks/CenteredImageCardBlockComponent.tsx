@@ -9,9 +9,6 @@ interface CenteredImageCardBlockComponentProps {
   block: CenteredImageCardBlock;
   isSelected: boolean;
   onBlockUpdate: (block: CenteredImageCardBlock) => void;
-  onAddBlock?: (block: ContentBlock, position: number) => void;
-  onDuplicate?: (block: ContentBlock, position: number) => void;
-  onDelete?: (blockId: string) => void;
   blockIndex?: number;
 }
 
