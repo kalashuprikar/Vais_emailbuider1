@@ -84,6 +84,7 @@ export const TitleBlockComponent: React.FC<TitleBlockComponentProps> = ({
         isSelected ? "ring-2 ring-valasys-orange" : ""
       }`}
       onClick={handleClick}
+      onDoubleClick={handleDoubleClick}
       style={containerStyle}
     >
       {isEditing ? (
@@ -98,7 +99,10 @@ export const TitleBlockComponent: React.FC<TitleBlockComponentProps> = ({
         <h1 style={textStyle}>{block.content}</h1>
       )}
       {isSelected && !isEditing && (
-        <div className="absolute top-1 right-1 bg-valasys-orange text-white p-1 rounded">
+        <div
+          onClick={handleEditIconClick}
+          className="absolute top-1 right-1 bg-valasys-orange text-white p-1 rounded cursor-pointer hover:bg-valasys-orange/90 transition-colors"
+        >
           <Edit2 className="w-3 h-3" />
         </div>
       )}
