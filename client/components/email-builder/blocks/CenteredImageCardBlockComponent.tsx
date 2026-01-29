@@ -23,6 +23,11 @@ export const CenteredImageCardBlockComponent: React.FC<
   const [startWidth, setStartWidth] = useState(0);
   const [startHeight, setStartHeight] = useState(0);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
+  const [isHoveringTitle, setIsHoveringTitle] = useState(false);
+  const [isHoveringDescription, setIsHoveringDescription] = useState(false);
+  const [isHoveringButton, setIsHoveringButton] = useState(false);
+  const [isHoveringButtonLink, setIsHoveringButtonLink] = useState(false);
+  const [isHoveringSection, setIsHoveringSection] = useState(false);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -232,12 +237,16 @@ export const CenteredImageCardBlockComponent: React.FC<
 
   return (
     <div
-      className={`rounded-lg group ${
+      className={`rounded-lg group transition-all ${
         isSelected ? "ring-2 ring-valasys-orange" : ""
-      } hover:border-2 hover:border-dotted hover:border-gray-400`}
+      }`}
+      onMouseEnter={() => setIsHoveringSection(true)}
+      onMouseLeave={() => setIsHoveringSection(false)}
       style={{
         backgroundColor: block.backgroundColor,
-        border: `${block.borderWidth}px solid ${block.borderColor}`,
+        border: isHoveringSection
+          ? "2px dashed rgb(255, 106, 0)"
+          : `${block.borderWidth}px solid ${block.borderColor}`,
         borderRadius: `${block.borderRadius}px`,
         margin: `${block.margin}px`,
         padding: `${block.padding}px`,
@@ -253,6 +262,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                 ? "border-2 border-dotted border-gray-400"
                 : ""
           }`}
+          style={{ boxSizing: "border-box" }}
           onMouseEnter={() => block.image && setIsHoveringImage(true)}
           onMouseLeave={() => setIsHoveringImage(false)}
         >
@@ -261,20 +271,22 @@ export const CenteredImageCardBlockComponent: React.FC<
               <div
                 style={{
                   position: "relative",
-                  display: "inline-block",
+                  display: "block",
                   width: "100%",
+                  overflow: "hidden",
                 }}
               >
                 <img
                   src={block.image}
                   alt={block.imageAlt}
                   onClick={() => setEditMode("image")}
-                  className="w-full h-auto rounded-lg cursor-pointer"
+                  className="w-full rounded-lg cursor-pointer"
                   style={{
-                    width: block.width ? `${block.width}px` : "100%",
-                    height: block.height ? `${block.height}px` : "auto",
+                    width: "100%",
+                    height: "auto",
                     objectFit: "cover",
                     display: "block",
+                    maxWidth: "100%",
                   }}
                 />
 
@@ -375,12 +387,19 @@ export const CenteredImageCardBlockComponent: React.FC<
                   onChange={(e) => handleFieldChange("title", e.target.value)}
                   onBlur={() => setEditMode(null)}
                   autoFocus
-                  className="text-center font-bold text-lg"
+                  className="text-center font-bold text-lg border-2 border-solid border-valasys-orange focus:outline-none"
                 />
               ) : (
                 <h3
                   onClick={() => setEditMode("title")}
-                  className="font-bold text-xl text-gray-900 cursor-pointer transition-all p-2 rounded hover:border-2 hover:border-dotted hover:border-gray-400"
+                  onMouseEnter={() => setIsHoveringTitle(true)}
+                  onMouseLeave={() => setIsHoveringTitle(false)}
+                  className="font-bold text-xl text-gray-900 cursor-pointer transition-all p-3 rounded"
+                  style={{
+                    border: isHoveringTitle
+                      ? "2px dashed rgb(255, 106, 0)"
+                      : "none",
+                  }}
                 >
                   {block.title}
                 </h3>
@@ -399,12 +418,19 @@ export const CenteredImageCardBlockComponent: React.FC<
                   }
                   onBlur={() => setEditMode(null)}
                   autoFocus
-                  className="w-full p-2 rounded text-sm text-gray-600 min-h-24 border border-dotted border-valasys-orange focus:outline-none focus:ring-2 focus:ring-valasys-orange focus:border-transparent"
+                  className="w-full p-3 rounded text-sm text-gray-600 min-h-24 border-2 border-dashed border-valasys-orange focus:outline-none bg-white"
                 />
               ) : (
                 <p
                   onClick={() => setEditMode("description")}
-                  className="text-sm text-gray-600 cursor-pointer transition-all p-2 rounded whitespace-pre-wrap break-words hover:border-2 hover:border-dotted hover:border-gray-400"
+                  onMouseEnter={() => setIsHoveringDescription(true)}
+                  onMouseLeave={() => setIsHoveringDescription(false)}
+                  className="text-sm text-gray-600 cursor-pointer transition-all p-3 rounded whitespace-pre-wrap break-words"
+                  style={{
+                    border: isHoveringDescription
+                      ? "2px dashed rgb(255, 106, 0)"
+                      : "none",
+                  }}
                 >
                   {block.description}
                 </p>
@@ -425,13 +451,18 @@ export const CenteredImageCardBlockComponent: React.FC<
                   }
                   onBlur={() => setEditMode(null)}
                   autoFocus
-                  className="text-center"
+                  className="text-center border-2 border-solid border-valasys-orange focus:outline-none"
                 />
               ) : (
                 <div className="flex justify-center">
                   <button
                     onClick={() => setEditMode("buttonText")}
-                    className="inline-block py-2 px-6 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all hover:border-2 hover:border-dotted hover:border-gray-400"
+                    onMouseEnter={() => setIsHoveringButton(true)}
+                    onMouseLeave={() => setIsHoveringButton(false)}
+                    className="inline-block py-2 px-6 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all"
+                    style={{
+                      border: isHoveringButton ? "2px dashed white" : "none",
+                    }}
                   >
                     {block.buttonText}
                   </button>
@@ -443,18 +474,34 @@ export const CenteredImageCardBlockComponent: React.FC<
             </div>
           )}
 
-          {editMode === "buttonLink" && (
+          {(block.buttonLink || editMode === "buttonLink") && (
             <div>
-              <Input
-                value={block.buttonLink}
-                onChange={(e) =>
-                  handleFieldChange("buttonLink", e.target.value)
-                }
-                onBlur={() => setEditMode(null)}
-                autoFocus
-                placeholder="https://example.com"
-                className="text-sm text-center"
-              />
+              {editMode === "buttonLink" ? (
+                <Input
+                  value={block.buttonLink}
+                  onChange={(e) =>
+                    handleFieldChange("buttonLink", e.target.value)
+                  }
+                  onBlur={() => setEditMode(null)}
+                  autoFocus
+                  placeholder="https://example.com"
+                  className="text-sm text-center border-2 border-solid border-valasys-orange focus:outline-none"
+                />
+              ) : (
+                <p
+                  onClick={() => setEditMode("buttonLink")}
+                  onMouseEnter={() => setIsHoveringButtonLink(true)}
+                  onMouseLeave={() => setIsHoveringButtonLink(false)}
+                  className="text-xs text-gray-500 cursor-pointer p-3 rounded break-all transition-all"
+                  style={{
+                    border: isHoveringButtonLink
+                      ? "2px dashed rgb(255, 106, 0)"
+                      : "none",
+                  }}
+                >
+                  {block.buttonLink || "#"}
+                </p>
+              )}
             </div>
           )}
         </div>

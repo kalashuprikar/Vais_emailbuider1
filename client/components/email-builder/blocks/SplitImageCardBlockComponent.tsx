@@ -14,6 +14,10 @@ export const SplitImageCardBlockComponent: React.FC<
   SplitImageCardBlockComponentProps
 > = ({ block, isSelected, onBlockUpdate }) => {
   const [editMode, setEditMode] = useState<string | null>(null);
+  const [isHoveringTitle, setIsHoveringTitle] = useState(false);
+  const [isHoveringDescription, setIsHoveringDescription] = useState(false);
+  const [isHoveringButton, setIsHoveringButton] = useState(false);
+  const [isHoveringButtonLink, setIsHoveringButtonLink] = useState(false);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -101,12 +105,19 @@ export const SplitImageCardBlockComponent: React.FC<
                     onChange={(e) => handleFieldChange("title", e.target.value)}
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="font-bold text-lg"
+                    className="font-bold text-lg border-2 border-solid border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <p
                     onClick={() => setEditMode("title")}
-                    className="font-bold text-lg text-gray-900 cursor-pointer p-2 rounded"
+                    onMouseEnter={() => setIsHoveringTitle(true)}
+                    onMouseLeave={() => setIsHoveringTitle(false)}
+                    className="font-bold text-lg text-gray-900 cursor-pointer p-3 rounded transition-all"
+                    style={{
+                      border: isHoveringTitle
+                        ? "2px dashed rgb(255, 106, 0)"
+                        : "none",
+                    }}
                   >
                     {block.title}
                   </p>
@@ -122,12 +133,19 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="w-full p-2 border border-gray-300 rounded text-sm text-gray-600 min-h-20"
+                    className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border-2 border-dashed border-valasys-orange focus:outline-none bg-white"
                   />
                 ) : (
                   <p
                     onClick={() => setEditMode("description")}
-                    className="text-sm text-gray-600 cursor-pointer p-2 rounded whitespace-pre-line"
+                    onMouseEnter={() => setIsHoveringDescription(true)}
+                    onMouseLeave={() => setIsHoveringDescription(false)}
+                    className="text-sm text-gray-600 cursor-pointer p-3 rounded whitespace-pre-line transition-all"
+                    style={{
+                      border: isHoveringDescription
+                        ? "2px dashed rgb(255, 106, 0)"
+                        : "none",
+                    }}
                   >
                     {block.description}
                   </p>
@@ -143,11 +161,17 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
+                    className="border-2 border-solid border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <button
                     onClick={() => setEditMode("buttonText")}
-                    className="py-2 px-4 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer"
+                    onMouseEnter={() => setIsHoveringButton(true)}
+                    onMouseLeave={() => setIsHoveringButton(false)}
+                    className="py-2 px-4 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all"
+                    style={{
+                      border: isHoveringButton ? "2px dashed white" : "none",
+                    }}
                   >
                     {block.buttonText}
                   </button>
@@ -164,14 +188,21 @@ export const SplitImageCardBlockComponent: React.FC<
                     onBlur={() => setEditMode(null)}
                     autoFocus
                     placeholder="https://example.com"
-                    className="text-sm"
+                    className="text-sm border-2 border-solid border-valasys-orange focus:outline-none"
                   />
                 ) : (
                   <p
                     onClick={() => setEditMode("buttonLink")}
-                    className="text-xs text-gray-500 cursor-pointer p-2 rounded break-all"
+                    onMouseEnter={() => setIsHoveringButtonLink(true)}
+                    onMouseLeave={() => setIsHoveringButtonLink(false)}
+                    className="text-xs text-gray-500 cursor-pointer p-3 rounded break-all transition-all"
+                    style={{
+                      border: isHoveringButtonLink
+                        ? "2px dashed rgb(255, 106, 0)"
+                        : "none",
+                    }}
                   >
-                    {block.buttonLink || "No link set"}
+                    {block.buttonLink || "#"}
                   </p>
                 )}
               </div>
