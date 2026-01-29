@@ -285,19 +285,15 @@ export const CenteredImageCardBlockComponent: React.FC<
                   </label>
                 )}
 
-                {/* Resize Handles - Only show when hovering */}
+                {/* Resize Handles - Only show when hovering (Corners only) */}
                 {isHoveringImage && (
                   <>
-                    {/* Corner handles */}
+                    {/* Corner handles only */}
                     {[
                       { pos: "nw", cursor: "nw-resize", top: "-4px", left: "-4px" },
                       { pos: "ne", cursor: "ne-resize", top: "-4px", right: "-4px" },
                       { pos: "sw", cursor: "sw-resize", bottom: "-4px", left: "-4px" },
                       { pos: "se", cursor: "se-resize", bottom: "-4px", right: "-4px" },
-                      { pos: "n", cursor: "n-resize", top: "-4px", left: "50%", transform: "translateX(-50%)" },
-                      { pos: "s", cursor: "s-resize", bottom: "-4px", left: "50%", transform: "translateX(-50%)" },
-                      { pos: "w", cursor: "w-resize", top: "50%", left: "-4px", transform: "translateY(-50%)" },
-                      { pos: "e", cursor: "e-resize", top: "50%", right: "-4px", transform: "translateY(-50%)" },
                     ].map((handle) => (
                       <div
                         key={handle.pos}
