@@ -94,28 +94,6 @@ export const SplitImageCardBlockComponent: React.FC<
 
           <div className={isImageLeft ? "md:w-3/5" : "md:w-3/5 order-first"}>
             <div className="space-y-3 p-4">
-              {block.label && (
-                <div>
-                  {editMode === "label" ? (
-                    <Input
-                      value={block.label}
-                      onChange={(e) =>
-                        handleFieldChange("label", e.target.value)
-                      }
-                      onBlur={() => setEditMode(null)}
-                      autoFocus
-                      className="text-xs"
-                    />
-                  ) : (
-                    <span
-                      onClick={() => setEditMode("label")}
-                      className="inline-block px-3 py-1 bg-valasys-orange text-white text-xs font-bold rounded cursor-pointer hover:bg-orange-600"
-                    >
-                      {block.label}
-                    </span>
-                  )}
-                </div>
-              )}
 
               <div>
                 {editMode === "title" ? (
