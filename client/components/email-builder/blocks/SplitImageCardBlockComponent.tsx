@@ -275,34 +275,25 @@ export const SplitImageCardBlockComponent: React.FC<
 
               <div>
                 {editMode === "description" ? (
-                  <textarea
-                    value={block.description}
-                    onChange={(e) =>
-                      handleFieldChange("description", e.target.value)
-                    }
-                    onBlur={() => setEditMode(null)}
-                    autoFocus
-                    className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border-2 border-dashed border-valasys-orange focus:outline-none bg-white"
-                  />
-                ) : (
                   <>
-                    <p
-                      onClick={() => setEditMode("description")}
-                      onMouseEnter={() => setIsHoveringDescription(true)}
-                      onMouseLeave={() => setIsHoveringDescription(false)}
-                      className="text-sm text-gray-600 cursor-pointer p-3 rounded whitespace-pre-line transition-all"
-                      style={{
-                        border: isHoveringDescription
-                          ? "2px dashed rgb(255, 106, 0)"
-                          : "none",
-                      }}
-                    >
-                      {block.description}
-                    </p>
-                    {isHoveringDescription && (
-                      <SectionToolbar sectionType="description" />
-                    )}
+                    <textarea
+                      value={block.description}
+                      onChange={(e) =>
+                        handleFieldChange("description", e.target.value)
+                      }
+                      onBlur={() => setEditMode(null)}
+                      autoFocus
+                      className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border-2 border-dashed border-valasys-orange focus:outline-none bg-white"
+                    />
+                    <SectionToolbar sectionType="description" />
                   </>
+                ) : (
+                  <p
+                    onClick={() => setEditMode("description")}
+                    className="text-sm text-gray-600 cursor-pointer p-3 rounded whitespace-pre-line transition-all border border-transparent hover:border-gray-300"
+                  >
+                    {block.description}
+                  </p>
                 )}
               </div>
 
