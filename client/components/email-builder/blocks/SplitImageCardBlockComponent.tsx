@@ -48,9 +48,7 @@ export const SplitImageCardBlockComponent: React.FC<
 
   return (
     <div
-      className={`p-4 rounded-lg ${
-        isSelected ? "ring-2 ring-valasys-orange" : ""
-      }`}
+      className="p-4 rounded-lg"
       style={{
         backgroundColor: block.backgroundColor,
         border: `${block.borderWidth}px solid ${block.borderColor}`,
@@ -105,7 +103,8 @@ export const SplitImageCardBlockComponent: React.FC<
                     onChange={(e) => handleFieldChange("title", e.target.value)}
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="font-bold text-lg border-2 border-solid border-valasys-orange focus:outline-none"
+                    className="font-bold text-lg focus:outline-none"
+                    style={{ border: "2px solid rgb(255, 106, 0)" }}
                   />
                 ) : (
                   <p
@@ -115,7 +114,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     className="font-bold text-lg text-gray-900 cursor-pointer p-3 rounded transition-all"
                     style={{
                       border: isHoveringTitle
-                        ? "2px dashed rgb(255, 106, 0)"
+                        ? "1px dashed rgb(255, 106, 0)"
                         : "none",
                     }}
                   >
@@ -133,7 +132,18 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="w-full p-3 rounded text-sm text-gray-600 min-h-20 border-2 border-dashed border-valasys-orange focus:outline-none bg-white"
+                    className="w-full resize-none"
+                    style={{
+                      padding: "1rem",
+                      borderRadius: "0.5rem",
+                      fontSize: "0.875rem",
+                      color: "rgb(55, 65, 81)",
+                      minHeight: "6rem",
+                      border: "2px solid rgb(255, 106, 0)",
+                      boxSizing: "border-box",
+                      outline: "none",
+                      backgroundColor: "white",
+                    }}
                   />
                 ) : (
                   <p
@@ -143,7 +153,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     className="text-sm text-gray-600 cursor-pointer p-3 rounded whitespace-pre-line transition-all"
                     style={{
                       border: isHoveringDescription
-                        ? "2px dashed rgb(255, 106, 0)"
+                        ? "1px dashed rgb(255, 106, 0)"
                         : "none",
                     }}
                   >
@@ -161,7 +171,8 @@ export const SplitImageCardBlockComponent: React.FC<
                     }
                     onBlur={() => setEditMode(null)}
                     autoFocus
-                    className="border-2 border-solid border-valasys-orange focus:outline-none"
+                    className="focus:outline-none"
+                    style={{ border: "2px solid rgb(255, 106, 0)" }}
                   />
                 ) : (
                   <button
@@ -170,7 +181,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     onMouseLeave={() => setIsHoveringButton(false)}
                     className="py-2 px-4 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all"
                     style={{
-                      border: isHoveringButton ? "2px dashed white" : "none",
+                      border: isHoveringButton ? "1px dashed white" : "none",
                     }}
                   >
                     {block.buttonText}
@@ -188,7 +199,8 @@ export const SplitImageCardBlockComponent: React.FC<
                     onBlur={() => setEditMode(null)}
                     autoFocus
                     placeholder="https://example.com"
-                    className="text-sm border-2 border-solid border-valasys-orange focus:outline-none"
+                    className="text-sm focus:outline-none"
+                    style={{ border: "2px solid rgb(255, 106, 0)" }}
                   />
                 ) : (
                   <p
@@ -198,7 +210,7 @@ export const SplitImageCardBlockComponent: React.FC<
                     className="text-xs text-gray-500 cursor-pointer p-3 rounded break-all transition-all"
                     style={{
                       border: isHoveringButtonLink
-                        ? "2px dashed rgb(255, 106, 0)"
+                        ? "1px dashed rgb(255, 106, 0)"
                         : "none",
                     }}
                   >
