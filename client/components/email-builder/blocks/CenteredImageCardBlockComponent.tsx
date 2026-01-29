@@ -385,7 +385,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                   onChange={(e) => handleFieldChange("title", e.target.value)}
                   onBlur={() => setEditMode(null)}
                   autoFocus
-                  className="text-center font-bold text-lg"
+                  className="text-center font-bold text-lg border-2 border-solid border-valasys-orange focus:outline-none"
                 />
               ) : (
                 <h3
