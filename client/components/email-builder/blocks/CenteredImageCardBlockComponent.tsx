@@ -260,6 +260,7 @@ export const CenteredImageCardBlockComponent: React.FC<
                 ? "border-2 border-dotted border-gray-400"
                 : ""
           }`}
+          style={{ boxSizing: "border-box" }}
           onMouseEnter={() => block.image && setIsHoveringImage(true)}
           onMouseLeave={() => setIsHoveringImage(false)}
         >
