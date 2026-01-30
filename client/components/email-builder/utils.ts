@@ -910,12 +910,12 @@ export function renderBlockToHTML(block: ContentBlock): string {
         ?.map(
           (card: any) => {
             const imageHtml = card.image
-              ? `<img src="${card.image}" alt="${card.imageAlt || ""}" style="width: 100%; height: auto; display: block; border-radius: ${card.borderRadius}px ${card.borderRadius}px 0 0; object-fit: cover;" />`
+              ? `<img src="${card.image}" alt="${card.imageAlt || ""}" style="width: 100%; height: auto; display: block; border-radius: ${card.borderRadius}px ${card.borderRadius}px 0 0; object-fit: cover; border: none;" />`
               : "";
             return `<div style="width: 48%; display: inline-block; vertical-align: top; padding-right: 10px; box-sizing: border-box;">
-              <div style="background-color: ${card.backgroundColor}; color: ${card.textColor}; border-radius: ${card.borderRadius}px; margin: ${card.margin}px; overflow: hidden;">
+              <div style="background-color: ${card.backgroundColor}; color: ${card.textColor}; border-radius: ${card.borderRadius}px; margin: ${card.margin}px; overflow: hidden; border: none;">
                 ${imageHtml}
-                <div style="padding: ${card.padding}px;">
+                <div style="padding: ${card.padding}px; margin: 0; border: none;">
                   <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold;">${card.title}</h3>
                   <p style="margin: 0; font-size: 14px; line-height: 1.5;">${card.description}</p>
                 </div>
@@ -924,7 +924,7 @@ export function renderBlockToHTML(block: ContentBlock): string {
           },
         )
         .join("");
-      return `<div style="width: ${width};"><div style="display: flex; gap: 20px;">${cardsHtml}</div></div>`;
+      return `<div style="width: ${width};"><div style="display: flex; gap: 20px; border: none;">${cardsHtml}</div></div>`;
     }
     case "stats": {
       const statsBlock = block as any;
