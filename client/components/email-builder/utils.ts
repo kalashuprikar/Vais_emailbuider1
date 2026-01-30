@@ -931,9 +931,9 @@ export function renderBlockToHTML(block: ContentBlock): string {
             return `<div style="width: 48%; display: inline-block; vertical-align: top; padding-right: 10px; box-sizing: border-box;">
               <div style="background-color: ${card.backgroundColor}; color: ${card.textColor}; border-radius: ${card.borderRadius}px; margin: ${card.margin}px; overflow: hidden; border: none;">
                 ${imageHtml}
-                <div style="padding: ${card.padding}px; margin: 0; border: none;">
-                  <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold;">${card.title}</h3>
-                  <p style="margin: 0; font-size: 14px; line-height: 1.5;">${card.description}</p>
+                <div style="padding: ${Math.max(12, card.padding)}px; margin: 0; border: none;">
+                  <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: bold;">${card.title}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.4;">${card.description}</p>
                 </div>
               </div>
             </div>`;
