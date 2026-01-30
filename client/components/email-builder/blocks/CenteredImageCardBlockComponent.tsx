@@ -474,19 +474,22 @@ export const CenteredImageCardBlockComponent: React.FC<
                   style={{ border: "2px solid rgb(255, 106, 0)" }}
                 />
               ) : (
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => setEditMode("buttonText")}
-                    onMouseEnter={() => setIsHoveringButton(true)}
-                    onMouseLeave={() => setIsHoveringButton(false)}
-                    className="inline-block py-2 px-6 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all"
-                    style={{
-                      border: isHoveringButton ? "1px dashed white" : "none",
-                    }}
-                  >
-                    {block.buttonText}
-                  </button>
-                </div>
+                <>
+                  <div className="flex justify-center">
+                    <button
+                      onClick={() => setEditMode("buttonText")}
+                      onMouseEnter={() => setIsHoveringButton(true)}
+                      onMouseLeave={() => setIsHoveringButton(false)}
+                      className="inline-block py-2 px-6 bg-valasys-orange text-white rounded text-sm font-bold hover:bg-orange-600 cursor-pointer transition-all"
+                      style={{
+                        border: isHoveringButton ? "1px dashed white" : "none",
+                      }}
+                    >
+                      {block.buttonText}
+                    </button>
+                  </div>
+                  {isHoveringButton && <div className="flex justify-center mt-2"><SectionToolbar sectionType="buttonText" /></div>}
+                </>
               )}
             </div>
           )}
