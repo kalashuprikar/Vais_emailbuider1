@@ -509,19 +509,22 @@ export const CenteredImageCardBlockComponent: React.FC<
                   style={{ border: "2px solid rgb(255, 106, 0)" }}
                 />
               ) : (
-                <p
-                  onClick={() => setEditMode("buttonLink")}
-                  onMouseEnter={() => setIsHoveringButtonLink(true)}
-                  onMouseLeave={() => setIsHoveringButtonLink(false)}
-                  className="text-xs text-gray-500 cursor-pointer p-3 rounded break-all transition-all"
-                  style={{
-                    border: isHoveringButtonLink
-                      ? "1px dashed rgb(255, 106, 0)"
-                      : "none",
-                  }}
-                >
-                  {block.buttonLink || "#"}
-                </p>
+                <>
+                  <p
+                    onClick={() => setEditMode("buttonLink")}
+                    onMouseEnter={() => setIsHoveringButtonLink(true)}
+                    onMouseLeave={() => setIsHoveringButtonLink(false)}
+                    className="text-xs text-gray-500 cursor-pointer p-3 rounded break-all transition-all"
+                    style={{
+                      border: isHoveringButtonLink
+                        ? "1px dashed rgb(255, 106, 0)"
+                        : "none",
+                    }}
+                  >
+                    {block.buttonLink || "#"}
+                  </p>
+                  {isHoveringButtonLink && <SectionToolbar sectionType="buttonLink" />}
+                </>
               )}
             </div>
           )}
