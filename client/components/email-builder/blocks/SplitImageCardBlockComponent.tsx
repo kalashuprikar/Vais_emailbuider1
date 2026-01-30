@@ -17,9 +17,6 @@ export const SplitImageCardBlockComponent: React.FC<
   block,
   isSelected,
   onBlockUpdate,
-  onDuplicate,
-  onDelete,
-  blockIndex = 0,
 }) => {
   const [editMode, setEditMode] = useState<string | null>(null);
   const [isHoveringTitle, setIsHoveringTitle] = useState(false);
