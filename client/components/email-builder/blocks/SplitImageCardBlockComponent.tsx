@@ -72,23 +72,6 @@ export const SplitImageCardBlockComponent: React.FC<
     });
   };
 
-  const handleImageUrlSubmit = () => {
-    const trimmedUrl = imageUrlInput.trim();
-    if (trimmedUrl) {
-      if (
-        trimmedUrl.startsWith("http://") ||
-        trimmedUrl.startsWith("https://")
-      ) {
-        onBlockUpdate({ ...block, image: trimmedUrl });
-        setImageUrlInput("");
-      } else {
-        alert("Please enter a valid URL starting with http:// or https://");
-      }
-    } else {
-      alert("Please enter an image URL");
-    }
-  };
-
   const handleAddTitle = () => {
     const newTitles = [...titles, { id: generateId(), content: "" }];
     onBlockUpdate({ ...block, titles: newTitles });
