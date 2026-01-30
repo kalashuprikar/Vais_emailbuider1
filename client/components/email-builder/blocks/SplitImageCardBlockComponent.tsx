@@ -347,16 +347,6 @@ export const SplitImageCardBlockComponent: React.FC<
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          navigator.clipboard.writeText(block.image);
-                        }}
-                        className="flex items-center justify-center cursor-pointer p-2 hover:bg-black hover:bg-opacity-60 rounded transition-all"
-                        title="Copy image URL"
-                      >
-                        <Copy className="w-6 h-6 text-white" />
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
                           onBlockUpdate({ ...block, image: "" });
                         }}
                         className="flex items-center justify-center cursor-pointer p-2 hover:bg-black hover:bg-opacity-60 rounded transition-all"
@@ -649,12 +639,12 @@ export const SplitImageCardBlockComponent: React.FC<
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          navigator.clipboard.writeText(block.image);
+                          onBlockUpdate({ ...block, image: "" });
                         }}
                         className="flex items-center justify-center cursor-pointer p-2 hover:bg-black hover:bg-opacity-60 rounded transition-all"
-                        title="Copy image URL"
+                        title="Delete image"
                       >
-                        <Copy className="w-6 h-6 text-white" />
+                        <Trash2 className="w-6 h-6 text-white" />
                       </button>
                       <button
                         onClick={(e) => {
