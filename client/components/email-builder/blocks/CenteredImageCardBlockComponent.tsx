@@ -141,13 +141,24 @@ export const CenteredImageCardBlockComponent: React.FC<
       | "buttonLink";
   }) => {
     const handleCopy = () => {
-      if (!onDuplicate) {
-        toast.error("Duplication not available");
-        return;
+      // Get the content of the specific section
+      let contentToCopy = "";
+      if (sectionType === "title") {
+        contentToCopy = block.title;
+      } else if (sectionType === "description") {
+        contentToCopy = block.description;
+      } else if (sectionType === "buttonText") {
+        contentToCopy = block.buttonText;
+      } else if (sectionType === "buttonLink") {
+        contentToCopy = block.buttonLink;
       }
 
-      // Duplicate the entire block
-      onDuplicate(block, blockIndex + 1);
+      // Copy to clipboard
+      if (contentToCopy) {
+        navigator.clipboard.writeText(contentToCopy).catch(() => {
+          // Fallback if clipboard API fails
+        });
+      }
       setEditMode(null);
     };
 
