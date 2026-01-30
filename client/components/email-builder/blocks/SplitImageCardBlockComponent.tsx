@@ -8,7 +8,6 @@ interface SplitImageCardBlockComponentProps {
   block: SplitImageCardBlock;
   isSelected: boolean;
   onBlockUpdate: (block: SplitImageCardBlock) => void;
-  onDuplicate?: (block: SplitImageCardBlock, position: number) => void;
   blockIndex?: number;
 }
 
